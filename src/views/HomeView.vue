@@ -24,20 +24,13 @@
 
 <script setup>
 import CardList from "../components/Cards/CardList.vue";
-import { provide, ref, watch } from "vue";
+import { ref } from "vue";
 import { storeToRefs } from "pinia";
 import { useProductStore } from "../stores/productStore";
 
 const productStore = useProductStore()
-const { sneakers, chosenItems, overallPrice } = storeToRefs(productStore)
+const { sneakers } = storeToRefs(productStore)
 const sort = ref("name");
 const search = ref("");
 
-watch(chosenItems.value, () => {
-    overallPrice.value = chosenItems.value.reduce((acc, item) => {
-        return acc + item.price
-    }, 0)
-})
-
-provide('overallPrice', overallPrice)
 </script>

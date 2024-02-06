@@ -1,0 +1,11 @@
+# Spacefile Docs: https://go.deta.dev/docs/spacefile/v0
+v: 0
+micros:
+  - name: innoshop
+    src: ./
+    engine: vue
+    commands:
+      - npm run build
+    public: true
+    serve: dist/
+    primary: true
