@@ -1,7 +1,7 @@
 <template>
     <div 
     v-if="chosenItems.length"
-    class="flex flex-col flex-1 gap-4  w-full h-3/4 overflow-auto">
+    class="flex flex-col flex-1 gap-4 w-full h-3/4 overflow-auto">
         <CartItem
         @removeCart="productStore.addItem(item.id)"
         v-for="item in chosenItems"
@@ -22,7 +22,7 @@
 <script setup>
 import CartItem from './CartItem.vue';
 import { storeToRefs } from "pinia";
-import { useProductStore } from "../../stores/productStore";
+import { useProductStore } from "../../../stores/productStore";
 
 const productStore = useProductStore()
 const { chosenItems } = storeToRefs(productStore)

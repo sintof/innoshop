@@ -1,10 +1,10 @@
 <template>
-    <div :id="id" class="relative bg-white border border-slate-200 rounded-3xl p-8 cursor-pointer
+    <div :id="id" class="relative h-fit bg-white border border-slate-200 rounded-3xl p-6 cursor-pointer
     hover:-translate-y-2 hover:shadow-xl transition">
       <img @click="productStore.addFavorite(id)" :src="isFavorite ? 'like-2.svg' : 'like-1.svg'" alt="Like" class="absolute top-8 left-8">
-      <img :src="imageUrl" alt="Sneakers">
+      <img class="w-32 h-32 mx-auto" :src="imageUrl" alt="Sneakers">
       
-      <p class="mt-2">{{ title }}</p>
+      <p class="mt-2 min-h-12">{{ title }}</p>
       
       <div class="flex justify-between mt-5">
         <div class="flex flex-col">

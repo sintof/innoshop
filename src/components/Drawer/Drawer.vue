@@ -7,19 +7,24 @@
 
         <CartItemList />
 
-        <div class="flex flex-col gap-4 mt-7">
-            <div class="flex gap-2 ">
-                <span>Итого:</span>
+        <div class="flex flex-col gap-4 mt-2">
+            <div class="flex gap-2">
+                <span>Цена:</span>
                 <div class="flex-1 border-b border-dashed"></div>
                 <b>{{ overallPrice }} руб.</b>
             </div>
-            <div class="flex gap-2 ">
+            <div class="flex gap-2">
                 <span>Налог 5%</span>
                 <div class="flex-1 border-b border-dashed"></div>
                 <b>{{ overallPrice * 0.05 }} руб.</b>
             </div>
+            <div class="flex gap-2">
+                <span>Итого:</span>
+                <div class="flex-1 border-b border-dashed"></div>
+                <b>{{ overallPrice * 0.95 }} руб.</b>
+            </div>
             <button
-        disabled
+        :disabled="!overallPrice"
         class="disabled:bg-slate-300 mt-4 bg-lime-500 w-full rounded-xl py-3 text-white hover:bg-lime-600 transition active:bg-lime-700">
             Оформить заказ
             </button>
@@ -29,12 +34,11 @@
 
 <script setup>
 import DrawerHead from './DrawerHead.vue';
-import CartItemList from '../Carts/CartItemList.vue';
+import CartItemList from './Carts/CartItemList.vue';
 import { storeToRefs } from "pinia";
 import { useProductStore } from "../../stores/productStore";
 
 const productStore = useProductStore()
-productStore.getSneakers()
 const { overallPrice } = storeToRefs(productStore)
 
 defineProps({
