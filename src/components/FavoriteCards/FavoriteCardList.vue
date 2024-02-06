@@ -11,6 +11,6 @@ import { storeToRefs } from "pinia";
 import { useProductStore } from "../../stores/productStore";
 
 const productStore = useProductStore()
-const { sneakers, favItems } = storeToRefs(productStore)
+const { favItems } = storeToRefs(productStore)
 
 </script>

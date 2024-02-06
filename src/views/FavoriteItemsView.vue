@@ -9,12 +9,10 @@
 
 <script setup>
 import FavoriteCardList from "../components/FavoriteCards/FavoriteCardList.vue";
-import { ref } from "vue";
 import { storeToRefs } from "pinia";
 import { useProductStore } from "../stores/productStore";
 
 const productStore = useProductStore()
 const { favItems } = storeToRefs(productStore)
-const search = ref("");
 
 </script>
