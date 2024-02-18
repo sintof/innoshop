@@ -1,6 +1,6 @@
 # Online Shop in Vue
 
-Used Vue + Pinia + Tailwind
+Used Vue + Pinia + Tailwind + Firebase
 
 ## Project Setup
 
