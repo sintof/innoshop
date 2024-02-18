@@ -17,13 +17,19 @@
           <span>Главная</span>
         </li>
       </router-link>
-      <router-link to="/favorite">
+      <router-link to="/favorite" v-if="authState">
         <li class="flex items-center gap-3 text-gray-500 hover:text-black cursor-pointer">
           <img src="/heart.svg" alt="heart">
           <span>Закладки</span>
         </li>
       </router-link>
-      <router-link to="/profile">
+      <router-link to="/login" v-if="!authState">
+        <li class="flex items-center gap-3  text-gray-500 hover:text-black cursor-pointer">
+          <img src="/profile.svg" alt="profile">
+          <span>Войти</span>
+        </li>
+      </router-link>
+      <router-link to="/profile" v-else>
         <li class="flex items-center gap-3  text-gray-500 hover:text-black cursor-pointer">
           <img src="/profile.svg" alt="profile">
           <span>Профиль</span>
@@ -36,9 +42,16 @@
 <script setup>
 import { storeToRefs } from "pinia";
 import { useProductStore } from "../stores/productStore";
+import { auth } from "@/firebase";
+import { ref } from "vue";
 
 const productStore = useProductStore()
 const { overallPrice } = storeToRefs(productStore)
+
+const authState = ref(auth.currentUser)
+auth.onAuthStateChanged((user) => {
+  authState.value = user
+})
 
 defineProps({
   switchDrawer: Function

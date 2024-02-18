@@ -23,10 +23,10 @@
 </template>
 
 <script setup>
-import CardList from "../components/Cards/CardList.vue";
+import CardList from "@/components/Cards/CardList.vue";
 import { ref } from "vue";
 import { storeToRefs } from "pinia";
-import { useProductStore } from "../stores/productStore";
+import { useProductStore } from "@/stores/productStore";
 
 const productStore = useProductStore()
 const { sneakers } = storeToRefs(productStore)

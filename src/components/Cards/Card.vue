@@ -1,5 +1,5 @@
 <template>
-    <div :id="id" class="relative h-fit bg-white border border-slate-200 rounded-3xl p-6 cursor-pointer
+    <div :id="id" class="relative h-full bg-white border border-slate-200 rounded-3xl p-6 cursor-pointer
     hover:-translate-y-2 hover:shadow-xl transition">
       <img @click="productStore.addFavorite(id)" :src="isFavorite ? 'like-2.svg' : 'like-1.svg'" alt="Like" class="absolute top-8 left-8">
       <img class="w-32 h-32 mx-auto" :src="imageUrl" alt="Sneakers">

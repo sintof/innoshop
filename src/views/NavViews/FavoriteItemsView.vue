@@ -8,9 +8,9 @@
 </template>
 
 <script setup>
-import FavoriteCardList from "../components/FavoriteCards/FavoriteCardList.vue";
+import FavoriteCardList from "@/components/FavoriteCards/FavoriteCardList.vue";
 import { storeToRefs } from "pinia";
-import { useProductStore } from "../stores/productStore";
+import { useProductStore } from "@/stores/productStore";
 
 const productStore = useProductStore()
 const { favItems } = storeToRefs(productStore)
