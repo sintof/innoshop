@@ -9,12 +9,15 @@
 
 <script setup>
 import { RouterView } from 'vue-router';
+import { onAuthStateChanged } from "firebase/auth";
+import { auth } from "./firebase";
 
 import Header from "./components/Header.vue";
 import Drawer from "./components/Drawer/Drawer.vue";
 import { ref, watch } from "vue";
 import { storeToRefs } from "pinia";
 import { useProductStore } from "./stores/productStore";
+import router from './router';
 
 const productStore = useProductStore()
 productStore.getSneakers()
@@ -30,4 +33,10 @@ watch(chosenItems.value, () => {
         return acc + item.price
     }, 0)
 })
+
+onAuthStateChanged(auth, (user) => {
+    if (user) {
+      router.push('/')
+    }
+});
 </script>
